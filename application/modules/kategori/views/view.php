@@ -9,7 +9,7 @@
             <!-- general form elements -->
             <div class="card ">
               <div class="card-header ">
-                <h3 class="card-title m-2">Form Kategori</h3>
+                <h3 class="card-title m-2">Form halooo</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
