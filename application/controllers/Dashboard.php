@@ -1,16 +1,16 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Main extends CI_Controller {
+class Dashboard extends CI_Controller {
 
 	public function index()
 	{
 		$this->load->view('template/header');
 		$this->load->view('template/sidebar',[
-            'active' => ''
+            'active' => 'dashboard'
         ]);
 		$this->load->view('template/navbar');
-		$this->load->view('template/content');
+		$this->load->view('dashboard/view');
 		$this->load->view('template/footer');
 	}
 }
