@@ -3,6 +3,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Barang extends CI_Controller {
 
+    public function __construct()
+    {
+        parent::__construct();
+
+        $this->load->model('barangModel');
+        date_default_timezone_set('Asia/Jakarta');
+    }
+
 	public function index()
 	{
 		$this->load->view('template/header');
@@ -58,6 +66,88 @@ class Barang extends CI_Controller {
         } else {
             exit('Maaf data tidak bisa ditampilkan');
         }
+    }
+
+    public function save()
+    {
+        $genId =  substr(md5(mt_rand()), 0, 32);
+        $response = [];
+
+        $id = $this->input->post('barang_id');
+        $file_name = round(microtime(true) * 1000) . $_FILES['barang_gambar']['name'];
+        $data = [
+            'barang_id' => $id ? $id : $genId,
+            'barang_kode' => $this->input->post('barang_kode'),
+            'barang_nama' => $this->input->post('barang_nama'),
+            'barang_harga_kulak' => $this->input->post('barang_harga_kulak'),
+            'barang_harga_jual' => $this->input->post('barang_harga_jual'),
+            'barang_margin' => $this->input->post('barang_margin'),
+            'barang_deskripsi' => $this->input->post('barang_deskripsi'),
+            'barang_supplier_id' => $this->input->post('barang_supplier_id'),
+            'barang_lokasi_id' => $this->input->post('barang_lokasi_id'),
+            'barang_gambar' => $_FILES['barang_gambar']['name'] ? $file_name : null, //set file name ke variable image
+            'barang_created_at' => date("Y-m-d H:i:s")
+        ];
+        print_r($_FILES['barang_gambar']); exit;
+        if ($id == '') {
+            if (!empty($_FILES['barang_gambar']['name'])) {
+                $upload = $this->_do_upload();
+                $_FILES['barang_gambar'] = $upload;
+            }
+
+            $insert = $this->barangModel->insert($data);
+            $response['success'] = $insert ? true : false;
+        } else {
+            if (!empty($_FILES['barang_gambar']['name'])) {
+                $upload = $this->_do_upload();
+                $_FILES['barang_gambar'] = $upload;
+            }
+
+            $update = $this->barangModel->update($id, $data);
+            $response['success'] = $update ? true : false;
+        }
+        echo json_encode($response);
+    }
+
+
+    private function _do_upload()
+    {
+        $config['upload_path']          = './uploads/barang/';
+        $config['allowed_types']        = 'gif|jpg|png';
+        $config['max_size']             = 3000; //set max size allowed in Kilobyte
+        $config['max_width']            = 3000; // set max width image allowed
+        $config['max_height']           = 3000; // set max height allowed
+        $config['file_name']            = round(microtime(true) * 1000) . $_FILES['barang_gambar']['name']; //just milisecond timestamp fot unique name
+
+        $this->load->library('upload', $config);
+        if (!$this->upload->do_upload('barang_gambar')) //upload and validate
+        {
+            $data['inputerror'][] = 'barang_gambar';
+            $data['error_string'][] = 'Upload error: ' . $this->upload->display_errors('', ''); //show ajax error
+            $data['status'] = FALSE;
+            echo json_encode($data);
+        }
+        return $this->upload->data('file_name');
+    }
+
+    public function onEdit()
+    {
+        $id = $this->input->post('id');
+        $operation = $this->barangModel->edit($id);
+        $response = [
+            'success' => $operation ? true : false
+        ];
+        echo json_encode($response);
+    }
+
+    public function destroy()
+    {
+        $id = $this->input->post('id');
+        $operation = $this->barangModel->destroy($id);
+        $response = [
+            'success' => $operation ? true : false
+        ];
+        echo json_encode($response);
     }
 }
 ?>

@@ -17,6 +17,7 @@
     <script src="<?= base_url()?>/assets/fontawesome/js/all.min.js"></script>
     <!-- Datatables -->
     <script type="text/javascript" src="<?= base_url() ?>/assets/datatables/datatables.min.js"></script>
+   
 </body>
 
 </html>
