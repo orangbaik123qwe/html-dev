@@ -13,8 +13,10 @@
     </div>
     <script src="<?= base_url()?>/template/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
     <script src="<?= base_url()?>/template/js/bootstrap.bundle.min.js"></script>
-
     <script src="<?= base_url()?>/template/js/main.js"></script>
+    <script src="<?= base_url()?>/assets/fontawesome/js/all.min.js"></script>
+    <!-- Datatables -->
+    <script type="text/javascript" src="<?= base_url() ?>/assets/datatables/datatables.min.js"></script>
 </body>
 
 </html>

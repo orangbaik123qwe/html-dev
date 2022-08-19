@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 19, 2022 at 02:20 AM
+-- Generation Time: Aug 19, 2022 at 04:03 PM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.4.8
 
@@ -181,7 +181,6 @@ CREATE TABLE `v_barang` (
 ,`barang_created_at` datetime
 ,`barang_updated_at` datetime
 ,`barang_deleted_at` datetime
-,`supplier_id` varchar(32)
 ,`supplier_kode` varchar(32)
 ,`supplier_nama` varchar(255)
 ,`supplier_telepon` varchar(32)
@@ -236,7 +235,7 @@ CREATE TABLE `v_stok_masuk` (
 --
 DROP TABLE IF EXISTS `v_barang`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_barang`  AS  select `tb_barang`.`barang_id` AS `barang_id`,`tb_barang`.`barang_kode` AS `barang_kode`,`tb_barang`.`barang_nama` AS `barang_nama`,`tb_barang`.`barang_harga_kulak` AS `barang_harga_kulak`,`tb_barang`.`barang_harga_jual` AS `barang_harga_jual`,`tb_barang`.`barang_margin` AS `barang_margin`,`tb_barang`.`barang_stok` AS `barang_stok`,`tb_barang`.`barang_deskripsi` AS `barang_deskripsi`,`tb_barang`.`barang_gambar` AS `barang_gambar`,`tb_barang`.`barang_supplier_id` AS `barang_supplier_id`,`tb_barang`.`barang_lokasi_id` AS `barang_lokasi_id`,`tb_barang`.`barang_created_at` AS `barang_created_at`,`tb_barang`.`barang_updated_at` AS `barang_updated_at`,`tb_barang`.`barang_deleted_at` AS `barang_deleted_at`,`tb_supplier`.`supplier_id` AS `supplier_id`,`tb_supplier`.`supplier_kode` AS `supplier_kode`,`tb_supplier`.`supplier_nama` AS `supplier_nama`,`tb_supplier`.`supplier_telepon` AS `supplier_telepon`,`tb_lokasi`.`lokasi_kode` AS `lokasi_kode`,`tb_lokasi`.`lokasi_nama` AS `lokasi_nama` from ((`tb_barang` left join `tb_supplier` on(`tb_barang`.`barang_supplier_id` = `tb_supplier`.`supplier_id`)) left join `tb_lokasi` on(`tb_barang`.`barang_lokasi_id` = `tb_lokasi`.`lokasi_id`)) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_barang`  AS  select `tb_barang`.`barang_id` AS `barang_id`,`tb_barang`.`barang_kode` AS `barang_kode`,`tb_barang`.`barang_nama` AS `barang_nama`,`tb_barang`.`barang_harga_kulak` AS `barang_harga_kulak`,`tb_barang`.`barang_harga_jual` AS `barang_harga_jual`,`tb_barang`.`barang_margin` AS `barang_margin`,`tb_barang`.`barang_stok` AS `barang_stok`,`tb_barang`.`barang_deskripsi` AS `barang_deskripsi`,`tb_barang`.`barang_gambar` AS `barang_gambar`,`tb_barang`.`barang_supplier_id` AS `barang_supplier_id`,`tb_barang`.`barang_lokasi_id` AS `barang_lokasi_id`,`tb_barang`.`barang_created_at` AS `barang_created_at`,`tb_barang`.`barang_updated_at` AS `barang_updated_at`,`tb_barang`.`barang_deleted_at` AS `barang_deleted_at`,`tb_supplier`.`supplier_kode` AS `supplier_kode`,`tb_supplier`.`supplier_nama` AS `supplier_nama`,`tb_supplier`.`supplier_telepon` AS `supplier_telepon`,`tb_lokasi`.`lokasi_kode` AS `lokasi_kode`,`tb_lokasi`.`lokasi_nama` AS `lokasi_nama` from ((`tb_barang` left join `tb_supplier` on(`tb_barang`.`barang_supplier_id` = `tb_supplier`.`supplier_id`)) left join `tb_lokasi` on(`tb_barang`.`barang_lokasi_id` = `tb_lokasi`.`lokasi_id`)) ;
 
 -- --------------------------------------------------------
 
