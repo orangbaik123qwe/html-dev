@@ -21,6 +21,12 @@
                         <span>Dashboard</span>
                     </a>
                 </li>
+                <li class="sidebar-item  <?= (($active == 'barang') ? 'active' : '') ?>">
+                    <a href="<?= base_url() . 'barang'?>" class='sidebar-link'>
+                        <i class="bi bi-grid-fill"></i>
+                        <span>Barang</span>
+                    </a>
+                </li>
 
                 <li class="sidebar-item active has-sub">
                     <a href="#" class='sidebar-link'>
