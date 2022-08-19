@@ -152,7 +152,7 @@
         font-size: 1rem;
     }
 </style>
-<div class="page-heading container" id="form-barang">
+<div class="page-heading container" id="view-form">
     <div class="page-title">
         <div class="row">
             <div class="col-12 col-md-6 order-md-1 order-last">
@@ -184,12 +184,13 @@
                     </div>
                     <div class="card-content">
                         <div class="card-body">
-                            <form class="form" id="form-barang">
+                            <form id="form-barang">
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="col-12">
                                             <div class="form-group">
                                                 <label for="barang_kode">Kode</label>
+                                                <input type="hidden" id="barang_id" name="barang_id">
                                                 <input type="text" id="barang_kode" class="form-control" placeholder="Masukkan kode" name="barang_kode">
                                             </div>
                                         </div>
@@ -245,9 +246,8 @@
                                             <label for="barang_gambar">Gambar</label>
                                             <div class="pic-holder">
                                                 <!-- uploaded pic shown here -->
-                                                <img id="profilePic" class="pic" src="https://source.unsplash.com/random/150x150?person">
-
-                                                <Input class="uploadProfileInput" type="file" name="barang_gambar" id="barang_gambar" accept="image/*" style="opacity: 0;" />
+                                                <img id="profilePic" class="pic">
+                                                <Input type="file" class="barang_gambar" id="barang_gambar" name="barang_gambar" style="opacity: 0;" />
                                                 <label for="barang_gambar" class="upload-file-block">
                                                     <div class="text-center">
                                                         <div class="mb-2">
@@ -264,7 +264,7 @@
                                     </div>
                                     <div class="col-12 d-flex justify-content-end">
                                         <button type="submit" class="btn btn-primary me-1 mb-1" style="border-radius: 10px;">Simpan</button>
-                                        <button type="reset" class="btn btn-light-secondary me-1 mb-1" style="border-radius: 10px;">Reset</button>
+                                        <button type="button" onclick="onReset(this)" class="btn btn-light-secondary me-1 mb-1" style="border-radius: 10px;">Reset</button>
                                     </div>
                                 </div>
                             </form>

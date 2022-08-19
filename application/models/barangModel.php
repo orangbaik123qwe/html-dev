@@ -103,5 +103,36 @@
 			$query = $this->db->get();
 			return $query->result();
 		}
+
+        public function insert($data)
+		{
+			return $this->db->insert('tb_barang', $data);
+		}
+        
+		public function update($id,$data)
+		{
+			$this->db->where([
+				'barang_id' => $id
+			]);
+			return $this->db->update('tb_barang', $data);
+		}
+
+        public function edit($id)
+		{
+			$this->db->where([
+				'barang_id' => $id
+			]);
+			$query = $this->db->get('tb_barang');
+			return $query->result_array();
+		}
+
+		public function destroy($id)
+		{
+			$data['barang_deleted_at'] = date('Y-m-d H:i:s');
+			$this->db->where([
+				'barang_id' => $id
+			]);
+			return $this->db->update('tb_barang', $data);
+		}
     }
 ?>
