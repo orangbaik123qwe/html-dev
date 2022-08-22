@@ -60,7 +60,7 @@
 
 <body>
     <div id="app">
-        <div id="throbber" class="modal" role="dialog" style="display:none; position:relative; opacity:0.6; background-color:white;">
+        <div id="throbber" class="modal" role="dialog" style="display:none; height: 100%; position:relative; opacity:0.6; background-color:white;">
             <img style="margin: 0 auto;
                 position: absolute;
                 top: 0; bottom: 0; left:0; right:0;

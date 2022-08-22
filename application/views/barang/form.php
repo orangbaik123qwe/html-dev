@@ -1,140 +1,65 @@
 <style>
-    .profile-pic-wrapper {
-        height: 200px;
-        width: 100%;
+    /*Profile Pic Start*/
+    .picture-container {
         position: relative;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: right;
-    }
-
-    .pic-holder {
-        text-align: center;
-        position: relative;
-        border-radius: 10px;
-        width: 150px;
-        height: 150px;
-        overflow: hidden;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-bottom: 5px;
-    }
-
-    .pic-holder .pic {
-        height: 100%;
-        width: 100%;
-        -o-object-fit: cover;
+        cursor: pointer;
+        text-align: start;
         object-fit: cover;
-        -o-object-position: center;
-        object-position: center;
+
     }
 
-    .pic-holder .upload-file-block,
-    .pic-holder .upload-loader {
+    .picture {
+        width: 100px;
+        height: 100px;
+        background-color: #999999;
+        border: 4px solid #CCCCCC;
+        color: #FFFFFF;
+        border-radius: 10%;
+        margin: 0px auto;
+        overflow: hidden;
+        transition: all 0.2s;
+        -webkit-transition: all 0.2s;
+        object-fit: cover;
+        -o-object-fit: cover;
+    }
+
+    .picture:hover {
+        border-color: #2ca8ff;
+    }
+
+    .content.ct-wizard-green .picture:hover {
+        border-color: #05ae0e;
+    }
+
+    .content.ct-wizard-blue .picture:hover {
+        border-color: #3472f7;
+    }
+
+    .content.ct-wizard-orange .picture:hover {
+        border-color: #ff9500;
+    }
+
+    .content.ct-wizard-red .picture:hover {
+        border-color: #ff3b30;
+    }
+
+    .picture input[type="file"] {
+        cursor: pointer;
+        display: block;
+        height: 100%;
+        left: 0;
+        opacity: 0 !important;
         position: absolute;
         top: 0;
-        left: 0;
-        height: 100%;
         width: 100%;
-        background-color: rgba(90, 92, 105, 0.7);
-        color: #f8f9fc;
-        font-size: 12px;
-        font-weight: 600;
-        opacity: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: all 0.2s;
+        object-fit: cover;
+
     }
 
-    .pic-holder .upload-file-block {
-        cursor: pointer;
-    }
-
-    .pic-holder:hover .upload-file-block,
-    .uploadProfileInput:focus~.upload-file-block {
-        opacity: 1;
-    }
-
-    .pic-holder.uploadInProgress .upload-file-block {
-        display: none;
-    }
-
-    .pic-holder.uploadInProgress .upload-loader {
-        opacity: 1;
-    }
-
-    /* Snackbar css */
-    .snackbar {
-        visibility: hidden;
-        min-width: 250px;
-        background-color: #333;
-        color: #fff;
-        text-align: center;
-        border-radius: 2px;
-        padding: 16px;
-        position: fixed;
-        z-index: 1;
-        left: 50%;
-        bottom: 30px;
-        font-size: 14px;
-        transform: translateX(-50%);
-    }
-
-    .snackbar.show {
-        visibility: visible;
-        -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
-        animation: fadein 0.5s, fadeout 0.5s 2.5s;
-    }
-
-    @-webkit-keyframes fadein {
-        from {
-            bottom: 0;
-            opacity: 0;
-        }
-
-        to {
-            bottom: 30px;
-            opacity: 1;
-        }
-    }
-
-    @keyframes fadein {
-        from {
-            bottom: 0;
-            opacity: 0;
-        }
-
-        to {
-            bottom: 30px;
-            opacity: 1;
-        }
-    }
-
-    @-webkit-keyframes fadeout {
-        from {
-            bottom: 30px;
-            opacity: 1;
-        }
-
-        to {
-            bottom: 0;
-            opacity: 0;
-        }
-    }
-
-    @keyframes fadeout {
-        from {
-            bottom: 30px;
-            opacity: 1;
-        }
-
-        to {
-            bottom: 0;
-            opacity: 0;
-        }
+    .picture-src {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
     }
 
     .select2-selection__rendered {
@@ -191,31 +116,31 @@
                                             <div class="form-group">
                                                 <label for="barang_kode">Kode</label>
                                                 <input type="hidden" id="barang_id" name="barang_id">
-                                                <input type="text" id="barang_kode" class="form-control" placeholder="Masukkan kode" name="barang_kode">
+                                                <input type="text" id="barang_kode" class="form-control" placeholder="Masukkan kode" name="barang_kode" required>
                                             </div>
                                         </div>
                                         <div class="col-12">
                                             <div class="form-group">
                                                 <label for="barang_nama">Nama</label>
-                                                <input type="text" id="barang_nama" class="form-control" placeholder="Masukkan nama" name="barang_nama">
+                                                <input type="text" id="barang_nama" class="form-control" placeholder="Masukkan nama" name="barang_nama" required>
                                             </div>
                                         </div>
                                         <div class="col-12">
                                             <div class="form-group">
                                                 <label for="barang_harga_kulak">Harga Kulak</label>
-                                                <input type="text" id="barang_harga_kulak" class="form-control" placeholder="Harga Kulak" name="barang_harga_kulak">
+                                                <input type="text" id="barang_harga_kulak" class="form-control" placeholder="Harga Kulak" name="barang_harga_kulak" required>
                                             </div>
                                         </div>
                                         <div class="col-12">
                                             <div class="form-group">
                                                 <label for="barang_harga_jual">Harga Jual</label>
-                                                <input type="text" id="barang_harga_jual" class="form-control" placeholder="Harga Jual" name="barang_harga_jual">
+                                                <input type="text" id="barang_harga_jual" class="form-control" onkeyup="getMargin(this)" placeholder="Harga Jual" name="barang_harga_jual" required>
                                             </div>
                                         </div>
                                         <div class="col-12">
                                             <div class="form-group">
                                                 <label for="barang_margin">Margin</label>
-                                                <input type="text" id="barang_margin" class="form-control" name="barang_margin" placeholder="Margin">
+                                                <input type="text" readonly id="barang_margin" class="form-control" name="barang_margin" placeholder="Margin">
                                             </div>
                                         </div>
                                     </div>
@@ -223,13 +148,13 @@
                                         <div class="col-12">
                                             <div class="form-group">
                                                 <label for="barang_deskripsi">Deskripsi</label>
-                                                <textarea id="barang_deskripsi" class="form-control" name="barang_deskripsi" rows="4" placeholder="Deskripsi"></textarea>
+                                                <textarea id="barang_deskripsi" class="form-control" name="barang_deskripsi" required rows="4" placeholder="Deskripsi"></textarea>
                                             </div>
                                         </div>
                                         <div class="col-12">
                                             <div class="form-group row">
                                                 <label class="col-12" for="barang_supplier_id">Supplier</label>
-                                                <select class="col-12 form-control select2" style="width:100%" id="barang_supplier_id" name="barang_supplier_id">
+                                                <select class="col-12 form-control select2" style="width:100%" id="barang_supplier_id" name="barang_supplier_id" required>
                                                     <option></option>
                                                 </select>
                                             </div>
@@ -237,30 +162,25 @@
                                         <div class="col-12">
                                             <div class="form-group row">
                                                 <label class="col-12" for="barang_lokasi_id">Lokasi</label>
-                                                <select class="col-12 form-control select2" style="width:100%" id="barang_lokasi_id" name="barang_lokasi_id">
+                                                <select class="col-12 form-control select2" style="width:100%" id="barang_lokasi_id" name="barang_lokasi_id" required>
                                                     <option></option>
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="profile-pic-wrapper">
-                                            <label for="barang_gambar">Gambar</label>
-                                            <div class="pic-holder">
-                                                <!-- uploaded pic shown here -->
-                                                <img id="profilePic" class="pic">
-                                                <Input type="file" class="barang_gambar" id="barang_gambar" name="barang_gambar" style="opacity: 0;" />
-                                                <label for="barang_gambar" class="upload-file-block">
-                                                    <div class="text-center">
-                                                        <div class="mb-2">
-                                                            <i class="fa fa-camera fa-2x"></i>
-                                                        </div>
-                                                        <div class="text-uppercase">
-                                                            Update <br /> Profile Photo
-                                                        </div>
-                                                    </div>
-                                                </label>
+
+                                        <div class="form-group col-12 row">
+                                            <label class="col-12 d-flex align-items-center" for="barang_gambar">Gambar</label>
+                                            <div class="picture-container col-3">
+                                                <div class="picture">
+                                                    <img src="<?= base_url() ?>assets/image/no-image.png" class="picture-src" id="barang_gambarPreview" title="">
+                                                    <input type="file" id="barang_gambar" name="barang_gambar" required>
+                                                </div>
                                             </div>
-                                            <span id="nama_gambar" style="font-size: 12px;">Nama Foto</span>
+
+                                            <span class="col-1"><i class="fa fa-times text-danger" onclick="removeGambar(this)"></i></span>
+                                            <span style="font-size: 10px" class="col-12 mx-2" id="namaGambar">Nama Gambar</span>
                                         </div>
+
                                     </div>
                                     <div class="col-12 d-flex justify-content-end">
                                         <button type="submit" class="btn btn-primary me-1 mb-1" style="border-radius: 10px;">Simpan</button>

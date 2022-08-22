@@ -34,6 +34,14 @@ class Barang extends CI_Controller {
                 $no++;
                 $row = array();
 
+                $img = '';
+
+                if ($field->barang_gambar) {
+                    $img = base_url('uploads/barang/' . $field->barang_gambar);
+                }else{
+                    $img = base_url('assets/image/no-image.png');
+                }
+
                 $tomboledit = "<button type=\"button\" onclick=\"onEdit('" . $field->barang_id . "')\" class=\"btn btn-sm btn-outline-warning\" title=\"Edit\">
                         <i class=\"fa fa-pen\"></i>
                     </button>";
@@ -41,9 +49,16 @@ class Barang extends CI_Controller {
                         <i class=\"fa fa-trash\"></i>
                     </button>";
 
+                $nama = "<div class=\"row\">
+                        <div style=\"height: 75px; width: 100px\">
+                            <img src=\"$img\" class=\"rounded-3\" style=\"width: 100%; height: 100%; object-fit: cover\">
+                        </div>
+                        <span class=\"mt-2\">$field->barang_nama</span>
+                    </div>";
+
                 $row[] = $no;
                 $row[] = $field->barang_kode;
-                $row[] = $field->barang_nama;
+                $row[] = $nama;
                 $row[] = $field->barang_harga_kulak;
                 $row[] = $field->barang_harga_jual;
                 $row[] = $field->barang_margin;
@@ -76,19 +91,19 @@ class Barang extends CI_Controller {
         $id = $this->input->post('barang_id');
         $file_name = round(microtime(true) * 1000) . $_FILES['barang_gambar']['name'];
         $data = [
-            'barang_id' => $id ? $id : $genId,
-            'barang_kode' => $this->input->post('barang_kode'),
-            'barang_nama' => $this->input->post('barang_nama'),
-            'barang_harga_kulak' => $this->input->post('barang_harga_kulak'),
-            'barang_harga_jual' => $this->input->post('barang_harga_jual'),
-            'barang_margin' => $this->input->post('barang_margin'),
-            'barang_deskripsi' => $this->input->post('barang_deskripsi'),
-            'barang_supplier_id' => $this->input->post('barang_supplier_id'),
-            'barang_lokasi_id' => $this->input->post('barang_lokasi_id'),
-            'barang_gambar' => $_FILES['barang_gambar']['name'] ? $file_name : null, //set file name ke variable image
-            'barang_created_at' => date("Y-m-d H:i:s")
+            'barang_id'             => $id ? $id : $genId,
+            'barang_kode'           => $this->input->post('barang_kode'),
+            'barang_nama'           => $this->input->post('barang_nama'),
+            'barang_harga_kulak'    => $this->input->post('barang_harga_kulak'),
+            'barang_harga_jual'     => $this->input->post('barang_harga_jual'),
+            'barang_margin'         => $this->input->post('barang_margin'),
+            'barang_deskripsi'      => $this->input->post('barang_deskripsi'),
+            'barang_supplier_id'    => $this->input->post('barang_supplier_id'),
+            'barang_lokasi_id'      => $this->input->post('barang_lokasi_id'),
+            'barang_gambar'         => $_FILES['barang_gambar']['name'] ? $file_name : null, //set file name ke variable image
+            'barang_created_at'     => date("Y-m-d H:i:s")
         ];
-        print_r($_FILES['barang_gambar']); exit;
+        // print_r($_FILES['barang_gambar']); exit;
         if ($id == '') {
             if (!empty($_FILES['barang_gambar']['name'])) {
                 $upload = $this->_do_upload();
@@ -134,10 +149,7 @@ class Barang extends CI_Controller {
     {
         $id = $this->input->post('id');
         $operation = $this->barangModel->edit($id);
-        $response = [
-            'success' => $operation ? true : false
-        ];
-        echo json_encode($response);
+        echo json_encode($operation);
     }
 
     public function destroy()
