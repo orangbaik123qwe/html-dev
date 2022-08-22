@@ -2,6 +2,7 @@
     #table-barang {
         overflow-x: auto;
     }
+    
 </style>
 
 <div class="page-heading container" id="view-barang">
