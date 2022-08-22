@@ -1,49 +1,41 @@
 <?php
 	defined('BASEPATH') OR exit('No direct script access allowed');
 
-	class barangModel extends CI_Model {
-		var $table = "v_barang";
+	class stokMasukModel extends CI_Model {
+		var $table = "v_stok_masuk";
 		var $column_order = [
 			null,
-			'barang_id',
+			'stok_masuk_id',
+			'stok_masuk_barang_id',
+			'stok_masuk_jumlah',
+			'stok_masuk_keterangan',
+			'stok_masuk_supplier',
+			'stok_masuk_tanggal',
 			'barang_kode',
 			'barang_nama',
-			'barang_harga_kulak',
-			'barang_harga_jual',
-			'barang_margin',
-			'barang_stok',
-			'barang_deskripsi',
 			'barang_gambar',
-			'barang_supplier_id',
-			'barang_lokasi_id',
-            'barang_created_at',
-            'barang_updated_at',
-            'barang_deleted_at',
+			'barang_deskripsi',
 			'supplier_kode',
 			'supplier_nama',
 			'supplier_telepon',
-			'lokasi_kode',
-			'lokasi_nama',
 			null
 		]; //Sesuaikan dengan field
 
 		var $column_search = [
+            'stok_masuk_jumlah',
+            'stok_masuk_keterangan',
+            'stok_masuk_supplier',
+            'stok_masuk_tanggal',
             'barang_kode',
             'barang_nama',
-            'barang_harga_kulak',
-            'barang_harga_jual',
-            'barang_margin',
-            'barang_stok',
             'barang_deskripsi',
             'supplier_kode',
             'supplier_nama',
             'supplier_telepon',
-            'lokasi_kode',
-            'lokasi_nama',
 		]; //field yang diizin untuk pencarian 
 
 		var $order = [
-			'barang_kode' => 'asc'
+			'stok_masuk_tanggal' => 'desc'
 		]; // default order 
 
 		private function loadTable_query()
@@ -97,52 +89,38 @@
 			$this->loadTable_query();
 			if ($_POST['length'] != -1)
 			$this->db->limit($_POST['length'], $_POST['start']);
-			$this->db->where([
-				'barang_deleted_at' => null
-			]);
+			// $this->db->where([
+			// 	'stok_masuk_deleted_at' => null
+			// ]);
 			$query = $this->db->get();
 			return $query->result();
 		}
 
+		
         public function insert($data)
 		{
-			return $this->db->insert('tb_barang', $data);
+			return $this->db->insert('tb_stok_masuk', $data);
+		}
+
+		public function updateStok($dataStok)
+		{
+			$getProduk = $this->db->where([
+				'barang_id' => $dataStok['barang_id']
+			]);
+			$getProduk = $this->db->get('tb_barang')->result_array();
+
+			$newStok = (int)$getProduk[0]['barang_stok'] + (int)$dataStok['qty'];
+
+			$dataNew = [
+				'barang_stok' => $newStok
+			];
+
+			$query = $this->db->where([
+				'barang_id' => $dataStok['barang_id']
+			]);
+			$query = $this->db->update('tb_barang', $dataNew);
+			return $query;
+			// print_r($newStok); exit;
 		}
         
-		public function update($id,$data)
-		{
-			$this->db->where([
-				'barang_id' => $id
-			]);
-			return $this->db->update('tb_barang', $data);
-		}
-
-        public function edit($id)
-		{
-			$this->db->where([
-				'barang_id' => $id
-			]);
-			$query = $this->db->get('tb_barang');
-			return $query->result_array();
-		}
-
-		public function destroy($id)
-		{
-			$data['barang_deleted_at'] = date('Y-m-d H:i:s');
-			$this->db->where([
-				'barang_id' => $id
-			]);
-			return $this->db->update('tb_barang', $data);
-		}
-
-		public function getBarangData()
-		{
-			$this->db->where([
-				'barang_deleted_at' => null,
-			]);
-			$query = $this->db->get('tb_barang')->result_array();
-			return $query;
-		}
-
     }
-?>

@@ -75,13 +75,17 @@
         $('#view-barang').hide();
         setTimeout(function() {
             unblock();
-        }, 1000);
-        $('#view-form').show();
+        }, 500);
+        $('#view-form_barang').show();
     }
 
     showView = () => {
+        block();
         $('#view-barang').show();
-        $('#view-form').hide();
+        $('#view-form_barang').hide();
+        setTimeout(function() {
+            unblock();
+        }, 500);
     }
 
     loadTable = () => {
@@ -106,7 +110,7 @@
         });
         setTimeout(function() {
             unblock();
-        }, 1000);
+        }, 500);
     }
 
     onRefresh = () => {
@@ -115,7 +119,7 @@
         loadTable();
         setTimeout(function() {
             unblock();
-        }, 1000);
+        }, 500);
     }
 
     removeGambar = () => {
@@ -144,7 +148,7 @@
                 showForm();
                 setTimeout(function() {
                     unblock();
-                }, 1000);
+                }, 500);
                 var data = data[0];
                 var img = '';
                 if (data.barang_gambar) {
@@ -254,7 +258,7 @@
                         res = JSON.parse(res);
                         setTimeout(function() {
                             unblock();
-                        }, 1000);
+                        }, 500);
                         if (res.success == true) {
                             swalWithBootstrapButtons.fire(
                                 'Success!',

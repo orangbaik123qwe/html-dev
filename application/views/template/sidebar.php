@@ -3,8 +3,7 @@
         <div class="sidebar-header">
             <div class="d-flex justify-content-between">
                 <div class="logo">
-                    <a href="index.html"><img src="<?= base_url()?>/template/images/logo/logo.png" alt="Logo"
-                            srcset=""></a>
+                    <a href="index.html"><img src="<?= base_url() ?>/template/images/logo/logo.png" alt="Logo" srcset=""></a>
                 </div>
                 <div class="toggler">
                     <a href="#" class="sidebar-hide d-xl-none d-block"><i class="bi bi-x bi-middle"></i></a>
@@ -16,35 +15,29 @@
                 <!-- <li class="sidebar-title">Menu</li> -->
 
                 <li class="sidebar-item  <?= (($active == 'dashboard') ? 'active' : '') ?>">
-                    <a href="<?= base_url() . 'dashboard'?>" class='sidebar-link'>
+                    <a href="<?= base_url() . 'dashboard' ?>" class='sidebar-link'>
                         <i class="bi bi-grid-fill"></i>
                         <span>Dashboard</span>
                     </a>
                 </li>
                 <li class="sidebar-item  <?= (($active == 'barang') ? 'active' : '') ?>">
-                    <a href="<?= base_url() . 'barang'?>" class='sidebar-link'>
-                        <i class="bi bi-grid-fill"></i>
+                    <a href="<?= base_url() . 'barang' ?>" class='sidebar-link'>
+                        <i class="fa fa-box"></i>
                         <span>Barang</span>
                     </a>
                 </li>
 
-                <li class="sidebar-item active has-sub">
+                <li class="sidebar-item <?= (($active == 'stokMasuk') ? 'active' : ''); (($active == 'stokMasuk') ? 'active' : '') ?> has-sub">
                     <a href="#" class='sidebar-link'>
                         <i class="bi bi-grid-1x2-fill"></i>
-                        <span>example sub menu (jangan di hapus)</span>
+                        <span>Stok</span>
                     </a>
-                    <ul class="submenu active">
-                        <li class="submenu-item ">
-                            <a href="layout-default.html">Default Layout</a>
+                    <ul class="submenu <?= (($active == 'stokMasuk') ? 'active' : ''); (($active == 'stokMasuk') ? 'active' : '') ?> timelineVersion">
+                        <li class="submenu-item <?= (($active == 'stokMasuk') ? 'active' : '') ?>">
+                            <a href="<?= base_url() . 'stokMasuk' ?>">Stok Masuk</a>
                         </li>
-                        <li class="submenu-item ">
-                            <a href="layout-vertical-1-column.html">1 Column</a>
-                        </li>
-                        <li class="submenu-item active">
-                            <a href="layout-vertical-navbar.html">Vertical with Navbar</a>
-                        </li>
-                        <li class="submenu-item ">
-                            <a href="layout-horizontal.html">Horizontal Menu</a>
+                        <li class="submenu-item <?= (($active == 'stokKeluar') ? 'active' : '') ?>">
+                            <a href="<?= base_url() . 'stokKeluar' ?>">Stok Keluar</a>
                         </li>
                     </ul>
                 </li>
