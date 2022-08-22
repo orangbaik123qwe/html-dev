@@ -161,5 +161,11 @@ class Barang extends CI_Controller {
         ];
         echo json_encode($response);
     }
+
+    public function getBarangData()
+    {
+        $operation = $this->barangModel->getBarangData();
+        echo json_encode($operation);
+    }
 }
 ?>

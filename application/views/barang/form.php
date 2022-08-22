@@ -77,7 +77,7 @@
         font-size: 1rem;
     }
 </style>
-<div class="page-heading container" id="view-form">
+<div class="page-heading container" id="view-form_barang">
     <div class="page-title">
         <div class="row">
             <div class="col-12 col-md-6 order-md-1 order-last">
