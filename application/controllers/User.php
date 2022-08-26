@@ -86,16 +86,26 @@ class User extends CI_Controller
         $id = $this->input->post('user_id');
         $password = $this->input->post('user_password');
         $file_name = round(microtime(true)) . $_FILES['user_pp']['name'];
+
         $data = [
-            'user_id'             => $id ? $id : $genId,
-            'user_username'           => $this->input->post('user_username'),
-            'user_password'           => password_hash($password, PASSWORD_DEFAULT),
-            'user_nama'           => $this->input->post('user_nama'),
-            'user_role'           => $this->input->post('user_role'),
-            'user_pp'         => $_FILES['user_pp']['name'] ? $file_name : null,
-            'user_created_at'     => date("Y-m-d H:i:s")
+            'user_id'               => $id ? $id : $genId,
+            'user_username'         => $this->input->post('user_username'),
+            // 'user_password'         => password_hash($password, PASSWORD_DEFAULT),
+            'user_nama'             => $this->input->post('user_nama'),
+            'user_role'             => $this->input->post('user_role'),
+            // 'user_pp'               => $_FILES['user_pp']['name'] ? $file_name : null,
+            'user_created_at'       => date("Y-m-d H:i:s")
 
         ];
+
+        //check value password & pp
+        if ($password) {
+            $data['user_password'] = password_hash($password, PASSWORD_DEFAULT);
+        }
+        if ($_FILES['user_pp']['name']) {
+            $data['user_pp'] = $file_name;
+        }
+
         if ($id == '') {
             if (!empty($_FILES['user_pp']['name'])) {
                 $upload = $this->_do_upload();

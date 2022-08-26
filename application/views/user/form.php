@@ -15,7 +15,7 @@
         border: 4px solid #CCCCCC;
         color: #FFFFFF;
         border-radius: 10%;
-        margin: 0px auto;
+        margin: 0px 0px;
         overflow: hidden;
         transition: all 0.2s;
         -webkit-transition: all 0.2s;
@@ -51,7 +51,7 @@
         opacity: 0 !important;
         position: absolute;
         top: 0;
-        width: 100%;
+        width: 100px;
         object-fit: cover;
 
     }
@@ -111,7 +111,7 @@
                         <div class="card-body">
                             <form id="form-user">
                                 <div class="row">
-                                    <div class="col-md-6">
+                                    <div class="col-md-10 offset-md-1">
                                         <div class="col-12">
                                             <div class="form-group" id="tol">
                                                 <label for="user_username">Username</label>
@@ -125,20 +125,6 @@
                                                 <input type="text" id="user_nama" class="form-control" placeholder="Masukkan nama" name="user_nama" required>
                                             </div>
                                         </div>
-                                        <div class="form-group col-12 row">
-                                            <label class="col-12 d-flex align-items-center" for="user_pp">Gambar</label>
-                                            <div class="picture-container col-3">
-                                                <div class="picture">
-                                                    <img src="<?= base_url() ?>assets/image/no-image.png" class="picture-src" id="user_ppPreview" title="">
-                                                    <input type="file" id="user_pp" name="user_pp" required>
-                                                </div>
-                                            </div>
-
-                                            <span class="col-1"><i class="fa fa-times text-danger" onclick="removeGambar(this)"></i></span>
-                                            <span style="font-size: 10px" class="col-12 mx-2" id="namaGambar">Nama Gambar</span>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
                                         <div class="col-12" id="password-view">
                                             <div class="form-group">
                                                 <label for="user_password">Password</label>
@@ -154,10 +140,22 @@
                                                 </select>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col-12 d-flex justify-content-end">
-                                        <button type="submit" class="btn btn-primary me-1 mb-1" style="border-radius: 10px;">Simpan</button>
-                                        <button type="button" onclick="onReset(this)" class="btn btn-light-secondary me-1 mb-1" style="border-radius: 10px;">Reset</button>
+                                        <div class="form-group col-12 row">
+                                            <label class="col-12 d-flex align-items-center" for="user_pp">Gambar</label>
+                                            <div class="picture-container col-2">
+                                                <div class="picture">
+                                                    <img src="<?= base_url() ?>assets/image/no-image.png" class="picture-src" id="user_ppPreview" title="">
+                                                    <input type="file" id="user_pp" name="user_pp">
+                                                </div>
+                                            </div>
+
+                                            <span class="col-1"><i class="fa fa-times text-danger" onclick="removeGambar(this)"></i></span>
+                                            <span style="font-size: 10px" class="col-12 mx-2" id="namaGambar">Nama Gambar</span>
+                                        </div>
+                                        <div class="col-12 d-flex justify-content-end">
+                                            <button type="submit" class="btn btn-primary me-1 mb-1" style="border-radius: 10px;">Simpan</button>
+                                            <button type="button" onclick="onReset(this)" class="btn btn-light-secondary me-1 mb-1" style="border-radius: 10px;">Reset</button>
+                                        </div>
                                     </div>
                                 </div>
                             </form>

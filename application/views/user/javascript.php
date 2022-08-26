@@ -109,14 +109,15 @@
                 } else {
                     img += BASE_URL + 'assets/image/no-image.png'
                 }
+
                 $('#user_ppPreview').attr('src', img);
                 $('#user_id').val(data.user_id);
                 $('#user_username').val(data.user_username);
-                $('#password-view').hide();
-                $('#user_nama').html(data.user_nama);
-                $('#user_pp').val(data.user_pp);
-                $('#namaGambar').html(data.namagambar);
-                $('#user_updated_at').html(data.user_updated_at);
+                $('#user_nama').val(data.user_nama);
+                $('#namaGambar').html(data.user_pp);
+                $('#user_password').removeAttr('required');
+                // $('#user_pp').val(data.user_pp);
+                // $('#user_updated_at').html(data.user_updated_at);
             }
         })
     }
