@@ -20,6 +20,13 @@
                         <span>Dashboard</span>
                     </a>
                 </li>
+                <li class="sidebar-item  <?= (($active == 'user') ? 'active' : '') ?>">
+                    <a href="<?= base_url() . 'user' ?>" class='sidebar-link'>
+                        <i class="fa fa-user"></i>
+                        <span>user</span>
+                    </a>
+                </li>
+
                 <li class="sidebar-item  <?= (($active == 'barang') ? 'active' : '') ?>">
                     <a href="<?= base_url() . 'barang' ?>" class='sidebar-link'>
                         <i class="fa fa-box"></i>
@@ -27,12 +34,14 @@
                     </a>
                 </li>
 
-                <li class="sidebar-item <?= (($active == 'stokMasuk') ? 'active' : ''); (($active == 'stokMasuk') ? 'active' : '') ?> has-sub">
+                <li class="sidebar-item <?= (($active == 'stokMasuk') ? 'active' : '');
+                                        (($active == 'stokMasuk') ? 'active' : '') ?> has-sub">
                     <a href="#" class='sidebar-link'>
                         <i class="bi bi-grid-1x2-fill"></i>
                         <span>Stok</span>
                     </a>
-                    <ul class="submenu <?= (($active == 'stokMasuk') ? 'active' : ''); (($active == 'stokMasuk') ? 'active' : '') ?> timelineVersion">
+                    <ul class="submenu <?= (($active == 'stokMasuk') ? 'active' : '');
+                                        (($active == 'stokMasuk') ? 'active' : '') ?> timelineVersion">
                         <li class="submenu-item <?= (($active == 'stokMasuk') ? 'active' : '') ?>">
                             <a href="<?= base_url() . 'stokMasuk' ?>">Stok Masuk</a>
                         </li>
