@@ -33,22 +33,24 @@
                 </div>
             </div>
             <div class="card-body">
-                <table class="table table-hover table-responsive" id="table-user">
-                    <thead>
-                        <tr>
-                            <th>No</th>
-                            <th>User</th>
-                            <th>Username</th>
-                            <th>Role</th>
-                            <th>Aksi</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    </tbody>
-                </table>
+                <div class="table-responsive">
+
+                    <table class="table table-hover table-responsive" id="table-user">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th width="20%">Nama</th>
+                                <th>Username</th>
+                                <th>Role</th>
+                                <th width="10%">Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
-
     </section>
 </div>
 <?php

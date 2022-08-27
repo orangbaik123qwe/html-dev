@@ -33,21 +33,25 @@
                 </div>
             </div>
             <div class="card-body">
-                <table class="table table-hover table-responsive" id="table-stokMasuk">
-                    <thead>
-                        <tr>
-                            <th>No</th>
-                            <th>Kode</th>
-                            <th>Nama</th>
-                            <th>Tanggal</th>
-                            <th>Qty</th>
-                            <th>Keterangan</th>
-                            <th>Supplier</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    </tbody>
-                </table>
+                <div class="table-responsive">
+
+                    <table class="table table-hover table-responsive" id="table-stokMasuk">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Kode</th>
+                                <th>Nama</th>
+                                <th>Tanggal</th>
+                                <th>Qty</th>
+                                <th>Keterangan</th>
+                                <th>Supplier</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+
             </div>
         </div>
 
