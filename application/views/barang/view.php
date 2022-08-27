@@ -2,7 +2,6 @@
     #table-barang {
         overflow-x: auto;
     }
-    
 </style>
 
 <div class="page-heading container" id="view-barang">
@@ -34,25 +33,31 @@
                 </div>
             </div>
             <div class="card-body">
-                <table class="table table-hover table-responsive" id="table-barang">
-                    <thead>
-                        <tr>
-                            <th>No</th>
-                            <th>Kode</th>
-                            <th>Nama</th>
-                            <th>Harga Kulak</th>
-                            <th>Harga Jual</th>
-                            <th>Margin</th>
-                            <th>Stok</th>
-                            <th>Deskripsi</th>
-                            <th>Supplier</th>
-                            <th>Lokasi</th>
-                            <th>Aksi</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    </tbody>
-                </table>
+                <div class="row">
+                    <div class="table-responsive">
+                        <table class="table table-hover table-responsive" id="table-barang">
+                            <thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th>Kode</th>
+                                    <th>Nama</th>
+                                    <th>Harga Kulak</th>
+                                    <th>Harga Jual</th>
+                                    <th>Margin</th>
+                                    <th>Stok</th>
+                                    <th>Deskripsi</th>
+                                    <th>Supplier</th>
+                                    <th>Lokasi</th>
+                                    <th>Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+
             </div>
         </div>
 
