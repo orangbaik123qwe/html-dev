@@ -7,6 +7,7 @@
         // selectBox()
         save();
         showView();
+        $('#user_password').attr('required', 'required');
 
         $("#user_pp").change(function() {
             readURL(this);
