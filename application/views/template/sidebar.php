@@ -51,6 +51,13 @@
                     </ul>
                 </li>
 
+                <li class="sidebar-item">
+                    <a href="<?= base_url() . 'login/logout' ?>" class='sidebar-link'>
+                        <i class="fa fa-sign-out"></i>
+                        <span>Keluar</span>
+                    </a>
+                </li>
+
             </ul>
         </div>
         <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
