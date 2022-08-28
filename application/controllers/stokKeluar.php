@@ -7,6 +7,10 @@ class stokKeluar extends CI_Controller {
     {
         parent::__construct();
 
+        if ($this->session->userdata('status') != "login" && $this->session->userdata('user_role') != "admin") {
+            redirect(base_url('login'));
+        }
+
         $this->load->model('stokKeluarModel');
         date_default_timezone_set('Asia/Jakarta');
     }
