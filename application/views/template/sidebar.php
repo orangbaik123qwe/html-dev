@@ -23,7 +23,7 @@
                 <li class="sidebar-item  <?= (($active == 'user') ? 'active' : '') ?>">
                     <a href="<?= base_url() . 'user' ?>" class='sidebar-link'>
                         <i class="fa fa-user"></i>
-                        <span>user</span>
+                        <span>User</span>
                     </a>
                 </li>
 
@@ -50,10 +50,16 @@
                         </li>
                     </ul>
                 </li>
+                <li class="sidebar-item  <?= (($active == 'configuration') ? 'active' : '') ?>">
+                    <a href="<?= base_url() . 'configuration' ?>" class='sidebar-link'>
+                        <i class="fa fa-cogs"></i>
+                        <span>Setting</span>
+                    </a>
+                </li>
 
                 <li class="sidebar-item">
                     <a href="<?= base_url() . 'login/logout' ?>" class='sidebar-link'>
-                        <i class="fa fa-sign-out"></i>
+                        <i class="fas fa-sign-out-alt"></i>
                         <span>Keluar</span>
                     </a>
                 </li>
