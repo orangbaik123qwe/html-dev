@@ -28,7 +28,7 @@
                         Tabel Barang
                     </div>
                     <div class="d-flex col-md-6 justify-content-end">
-                        <button type="button" class="btn btn-sm btn-success" onclick="showForm(this)"> <i class="fas fa-plus"></i> Tambah</button>
+                        <button type="button" class="btn btn-sm btn-tambah d-flex align-items-center" onclick="showForm(this)"> <i class="fas fa-plus" style="margin-right: 6px;"></i> Tambah</button>
                     </div>
                 </div>
             </div>

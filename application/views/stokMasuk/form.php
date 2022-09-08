@@ -103,7 +103,7 @@
                                 Stok Masuk
                             </div>
                             <div class="col-md-6 d-flex justify-content-end">
-                                <button type="button" class="btn btn-sm btn-outline-secondary" onclick="showView(this)"><i class="fas fa-undo"></i> Kembali</button>
+                                <button type="button" class="btn btn-sm btn-back" onclick="showView(this)"><i class="fas fa-undo"></i> Kembali</button>
                             </div>
                         </div>
                     </div>
@@ -148,8 +148,8 @@
                                         </div>
                                     </div>
                                     <div class="col-12 mt-2 d-flex justify-content-end">
-                                        <button type="submit" class="btn btn-primary me-1 mb-1" style="border-radius: 10px;">Simpan</button>
-                                        <button type="button" onclick="onReset(this)" class="btn btn-light-secondary me-1 mb-1" style="border-radius: 10px;">Reset</button>
+                                        <button type="submit" class="btn btn-sm btn-primary me-1 mb-1" style="border-radius: 10px;">Simpan</button>
+                                        <button type="button" onclick="onReset(this)" class="btn btn-sm btn-light-secondary me-1 mb-1" style="border-radius: 10px;">Reset</button>
                                     </div>
                                 </div>
                             </form>
