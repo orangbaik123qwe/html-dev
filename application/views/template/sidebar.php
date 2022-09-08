@@ -20,12 +20,7 @@
                         <span>Dashboard</span>
                     </a>
                 </li>
-                <li class="sidebar-item  <?= (($active == 'user') ? 'active' : '') ?>">
-                    <a href="<?= base_url() . 'user' ?>" class='sidebar-link'>
-                        <i class="fa fa-user"></i>
-                        <span>User</span>
-                    </a>
-                </li>
+
 
                 <li class="sidebar-item  <?= (($active == 'barang') ? 'active' : '') ?>">
                     <a href="<?= base_url() . 'barang' ?>" class='sidebar-link'>
@@ -49,6 +44,18 @@
                             <a href="<?= base_url() . 'stokKeluar' ?>">Stok Keluar</a>
                         </li>
                     </ul>
+                </li>
+                <li class="sidebar-item  <?= (($active == 'supplier') ? 'active' : '') ?>">
+                    <a href="<?= base_url() . 'supplier' ?>" class='sidebar-link'>
+                        <i class="fa fa-truck"></i>
+                        <span>Supplier</span>
+                    </a>
+                </li>
+                <li class="sidebar-item  <?= (($active == 'user') ? 'active' : '') ?>">
+                    <a href="<?= base_url() . 'user' ?>" class='sidebar-link'>
+                        <i class="fa fa-user"></i>
+                        <span>User</span>
+                    </a>
                 </li>
                 <li class="sidebar-item">
                     <a href="<?= base_url() . 'login/logout' ?>" class='sidebar-link'>

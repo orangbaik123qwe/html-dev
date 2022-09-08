@@ -82,12 +82,18 @@
 		function count_filtered()
 		{
 			$this->loadTable_query();
+			$this->db->where([
+				'barang_deleted_at' => null
+			]);
 			$query = $this->db->get();
 			return $query->num_rows();
 		}
 
 		public function count_all()
-		{
+		{	
+			$this->db->where([
+				'barang_deleted_at' => null
+			]);
 			$this->db->from($this->table);
 			return $this->db->count_all_results();
 		}

@@ -59,6 +59,50 @@
 </head>
 
 <body>
+    <style>
+        .btn-tambah {
+            border-radius: 10px;
+            background-color: #435ebe;
+            color: white;
+        }
+
+        .btn-back {
+            border-radius: 10px;
+            background-color: #f2f2f2;
+            color: black;
+        }
+
+        .dataTables_filter label input {
+            border-radius: 10px !important;
+            width: 100pt;
+        }
+
+        .dataTables_filter label {
+            font-size: 14px;
+            margin-right: 10px;
+        }
+
+        .dataTables_length label {
+            font-size: 14px;
+        }
+
+        .dataTables_length label select {
+            border-radius: 10px !important;
+            font-size: 14px;
+        }
+
+        .dataTables_info {
+            font-size: 14px;
+        }
+
+        .paginate_button {
+            font-size: 14px;
+        }
+
+        .paginate_button .current{
+            border-radius: 10px;
+        }
+    </style>
     <div id="app">
         <div id="throbber" class="modal" role="dialog" style="display:none; height: 100%; position:relative; opacity:0.6; background-color:white;">
             <img style="margin: 0 auto;

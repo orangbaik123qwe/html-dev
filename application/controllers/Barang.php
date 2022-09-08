@@ -104,9 +104,12 @@ class Barang extends CI_Controller {
             'barang_deskripsi'      => $this->input->post('barang_deskripsi'),
             'barang_supplier_id'    => $this->input->post('barang_supplier_id'),
             'barang_lokasi_id'      => $this->input->post('barang_lokasi_id'),
-            'barang_gambar'         => $_FILES['barang_gambar']['name'] ? $file_name : null, //set file name ke variable image
+            // 'barang_gambar'         => $_FILES['barang_gambar']['name'] ? $file_name : null, //set file name ke variable image
             'barang_created_at'     => date("Y-m-d H:i:s")
         ];
+        if ($_FILES['barang_gambar']['name']) {
+            $data['barang_gambar'] = $file_name;
+        }
         // print_r($_FILES['barang_gambar']); exit;
         if ($id == '') {
             if (!empty($_FILES['barang_gambar']['name'])) {

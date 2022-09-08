@@ -62,6 +62,9 @@ class userModel extends CI_Model
 
     function count_filtered()
     {
+        $this->db->where([
+            'user_deleted_at' => null
+        ]);
         $this->loadTable_query();
         $query = $this->db->get();
         return $query->num_rows();
@@ -69,6 +72,9 @@ class userModel extends CI_Model
 
     public function count_all()
     {
+        $this->db->where([
+            'user_deleted_at' => null
+        ]);
         $this->db->from($this->table);
         return $this->db->count_all_results();
     }
