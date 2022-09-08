@@ -28,14 +28,14 @@
                         Tabel User
                     </div>
                     <div class="d-flex col-md-6 justify-content-end">
-                        <button type="button" class="btn btn-sm btn-success" onclick="showForm(this)"> <i class="fas fa-plus"></i> Tambah</button>
+                        <button type="button" class="btn btn-info" onclick="showForm(this)"> <i class="fas fa-plus"></i> Tambah</button>
                     </div>
                 </div>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
 
-                    <table class="table table-hover table-responsive" id="table-user">
+                    <table class="table" id="table-user">
                         <thead>
                             <tr>
                                 <th>No</th>

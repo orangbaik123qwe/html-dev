@@ -50,13 +50,6 @@
                         </li>
                     </ul>
                 </li>
-                <li class="sidebar-item  <?= (($active == 'configuration') ? 'active' : '') ?>">
-                    <a href="<?= base_url() . 'configuration' ?>" class='sidebar-link'>
-                        <i class="fa fa-cogs"></i>
-                        <span>Setting</span>
-                    </a>
-                </li>
-
                 <li class="sidebar-item">
                     <a href="<?= base_url() . 'login/logout' ?>" class='sidebar-link'>
                         <i class="fas fa-sign-out-alt"></i>
