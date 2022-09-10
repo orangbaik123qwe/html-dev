@@ -29,8 +29,10 @@ class stokMasuk extends CI_Controller {
     public function loadTable()
     {
         if ($this->input->is_ajax_request() == true) {
+            $startDate = $this->input->post('startDate');
+            $endDate = $this->input->post('endDate');
             $this->load->model('stokMasukModel', 'stokMasuk');
-            $list = $this->stokMasuk->loadTable();
+            $list = $this->stokMasuk->loadTable($startDate, $endDate);
             $data = array();
             $no = $_POST['start'];
             foreach ($list as $field) {
