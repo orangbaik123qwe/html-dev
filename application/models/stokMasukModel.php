@@ -84,16 +84,29 @@
 			return $this->db->count_all_results();
 		}
 
-		public function loadTable()
+		public function loadTable($startDate, $endDate)
 		{
-			$this->loadTable_query();
-			if ($_POST['length'] != -1)
-			$this->db->limit($_POST['length'], $_POST['start']);
-			// $this->db->where([
-			// 	'stok_masuk_deleted_at' => null
-			// ]);
-			$query = $this->db->get();
-			return $query->result();
+			if ($startDate || $endDate) {
+				$this->loadTable_query();
+				if ($_POST['length'] != -1)
+				$this->db->limit($_POST['length'], $_POST['start']);
+				$this->db->where(
+					'stok_masuk_tanggal BETWEEN "' . date("Y-m-d H:i:s", strtotime($startDate . ' 00:00:00')) . '" and "' . date("Y-m-d H:i:s", strtotime($endDate . ' 23:59:59')) . '"'
+				);
+				$query = $this->db->get();
+				return $query->result();
+				
+			}else{
+				$this->loadTable_query();
+				if ($_POST['length'] != -1)
+				$this->db->limit($_POST['length'], $_POST['start']);
+				$this->db->where(
+					'stok_masul_tanggal BETWEEN "' . date("Y-m-d H:i:s", strtotime('01-01-2000 00:00:00')) . '" and "' . date("Y-m-d H:i:s", strtotime($endDate . '01-01-3000 23:59:59')) . '"'
+				);
+				$query = $this->db->get();
+				return $query->result();
+
+			}
 		}
 
 		

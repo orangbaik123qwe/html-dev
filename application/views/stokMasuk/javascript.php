@@ -10,6 +10,19 @@
         $('#stok_masuk_tgl_full').val(date);
         showView();
 
+        $(".datepicker").inputmask("99/99/9999", {
+            "placeholder": "dd/mm/yyyy",
+            autoUnmask: true
+        });
+
+        $('.datepicker').datepicker({
+            value: new Date(),
+            orientation: 'bottom left',
+            clearBtn: true,
+            format: 'dd-mm-yyyy',
+            todayHighlight: true,
+        });
+
         $('.select2').select2({
             placeholder: "- Pilih Data -",
             allowClear: true,
@@ -74,7 +87,7 @@
         }, 500);
     }
 
-    loadTable = () => {
+    loadTable = (filter = null) => {
         table = $('#table-stokMasuk').DataTable({
             "responsive": true,
             "destroy": true,
@@ -84,7 +97,8 @@
             "autoWidth": false,
             "ajax": {
                 "url": "<?= site_url('stokMasuk/loadTable') ?>",
-                "type": "POST"
+                "type": "POST",
+                "data": filter
             },
 
             "columnDefs": [{
@@ -161,5 +175,22 @@
                 }
             });
         });
+    }
+
+
+    function onFilter(is_reset = false) {
+        var filter = {};
+        console.log(filter);
+        if (is_reset == true) {
+            $('#startDate, #endDate').val('').trigger('change')
+        } else {
+            if ($('#startDate').val()) {
+                filter['startDate'] = $('#startDate').val();
+            }
+            if ($('#endDate').val()) {
+                filter['endDate'] = $('#startDate').val();
+            }
+        }
+        loadTable(filter);
     }
 </script>
